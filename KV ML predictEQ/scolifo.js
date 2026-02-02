@@ -1,0 +1,33 @@
+const mapImage = document.getElementById('world-map');
+const resultBox = document.getElementById('result-box');
+const probabilityText = document.getElementById('probability-text');
+// const countryText = document.getElementById('country-text');
+
+mapImage.addEventListener('click', function(event) {
+  const rect = mapImage.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+
+  // Calculate latitude and longitude
+  const lon = (x / rect.width) * 360 - 180;  // -180 to 180
+  const lat = 90 - (y / rect.height) * 180;  // 90 to -90
+
+  // Send to backend
+  fetch('/predict_earthquake', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ latitude: lat, longitude: lon })
+  })
+  .then(response => response.json())
+  .then(data => {
+    probabilityText.textContent = `Probability of major earthquake in next 5 years: ${(data.probability * 100).toFixed(2)}%`;
+    countryText.textContent = `Closest country: ${data.country}`;
+    resultBox.style.display = 'block';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error fetching prediction.');
+  });
+});
