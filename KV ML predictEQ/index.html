@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earthquake Prediction App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 2em;
+        }
+        .left {
+            width: 45%;
+            text-align: center;
+            margin-left: 80px;
+        }
+        .right {
+            width: 45%;
+            text-align: center;
+            margin-left: 120px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the PredictEQ</h1>
+  Hi! My name is Kusa Vishnubhotla,  I am an aspiring ML/AI engineer interested in machine learning models, mathematical reasoning, and data-driven analysis.  This project was my first ever project I made and I am extremely proud of this.  There still a few functions I need to fix but its perfectly solid to use.  To sum up the project, using a synthetic global earthquake data set,  I made a model that is able to major earthquakes probabilities in a 20 year range using key factors such as the tectonic setting, the historical seismic activity, and much more.  This project is not 100% accurate and should only be used for educational and analytical purposes.
+    <div class="container">
+        <div class="left">
+            <p>Earthquake Probabilities with manual input.</p>
+            <button onclick="window.location.href='/manual_input'">Manual Input</button>
+        </div>
+        <div class="right">
+            <p> Earthquake probabilities on the world map. </p>
+            <button onclick="window.location.href='/scoli'">Start Exploring</button>
+            <p style="font-size: 12px;">This feature is going through some maintenance, but is still open, so apologies for any bugged predictions🫠.</p>
+        </div>
+    </div>
+</body>
+</html>
